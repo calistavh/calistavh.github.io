@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Type Conventional Commit</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+            <a class="navbar-brand" href="#">Calista's GitHub Page</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="#">Blog PPL</a>
+            </div>
+        </nav>
+        <div class="p-5">
+            <div class="text-center">
+                <h1>Type Conventional Commit</h1>
+                <b>Sprint 1 Week 2 | 3 Maret 2024</b>
+            </div>
+            <hr>
+            <p>Commit message adalah satu fitur dalam version control system yang tampaknya kecil namun sangat penting dalam software development. Konsepnya sederhana: kita memberi pesan singkat yang mendeskripsikan perubahan apa yang kita lakukan terhadap project. Pesan ini bermanfaat bagi para developer (termasuk diri sendiri) yang suatu saat ingin mencari version tertentu, misalnya untuk memperbaiki sebuah bug. Alih-alih mengulik kode semua version satu per satu, kita cukup melihat message dalam daftar commit untuk menemukan perubahan mana yang membuat bug tersebut muncul.</p>
+            <p>Jadi keberadaan commit message dapat membuat pekerjaan dalam tim maupun individu lebih efisien--jika message yang diberikan formatnya konsisten. Tapi nyatanya tidak ada aturan wajib dalam membuat commit message, sehingga saya sendiri pun terbiasa membuat message seadanya sejak awal belajar git. Baru dalam proyek PPL ini saya melihat ada yang sedikit berbeda dengan commit message teman-teman sekelompok dibandingkan punya saya.</p>
+            <span class="text-center"><p><i>feat: add &lt;feature_name&gt;</feature_name> feature</i></p></span>
+            <p>"Prefiks apa ini?" pikir saya. Saya lihat version history, ternyata semua commit message-nya diawali oleh prefiks yang serupa. Dipikir-pikir lagi, saya melihat gaya commit message seperti ini beberapa kali sebelumnya tapi belum pernah saya ulik sendiri. Jadi saya bertanya ke teman saya (Google) tentang maksud dari pelabelan commit message tersebut. Dari sana saya menemukan bahwa commit message juga memiliki konvensi yang dinamakan... ya, conventional commit.</p>
+            <p>Inti dari <b>conventional commit</b>, menurut <a href="https://www.conventionalcommits.org/">website resminya</a>, adalah struktur ini:</p>
+            <p><code>
+                &lt;type&gt;[optional scope]: &lt;description&gt;
+                <br>
+                [optional body]
+                <br>
+                [optional footer(s)]
+            </code></p>
+            <p>Kalau kita hapus semua bagian opsionalnya, maka didapat syntax paling sederhana <code>&lt;type&gt;: &lt;description&gt;</code>. Sesuai dengan commit message yang sering saya lihat. Website di atas menjelaskan dua type utama untuk commit, yaitu feat dan fix. Namun ada beberapa type lain yang dapat digunakan menurut <a href="https://kapeli.com/cheat_sheets/Conventional_Commits.docset/Contents/Resources/Documents/index">cheat sheet ini</a>. Berikut adalah beberapa type yang saya sudah atau ingin gunakan untuk project-project kedepannya.</p>
+            <h4>feat</h4>
+            <p>feat digunakan untuk memperkenalkan fitur baru--setidaknya menurut website, tapi saya ingin tahu apakah perubahan pada fitur dikategorikan ke dalam feat atau tidak. Dipikir lagi, definisi 'fitur' di sini tidak memiliki definisi yang jelas. Jadi untuk saat ini, saya mengambil kesimpulan bahwa jika terjadi perubahan pada fungsionalitas atau output program, maka perubahan tersebut dikategorikan sebagai feat.</p>
+            <div class="text-center"><img src="../images/feat.png"></div>
+            <br>
+            <h4>fix</h4>
+            <p>fix digunakan untuk memperbaiki bug yang muncul pada version sebelumnya, dengan deskripsi berisi bug tersebut. Saya sendiri belum pernah menggunakannya, tapi sepertinya type ini akan banyak muncul setelah banyak commit, testing, dan integrasi.</p>
+            <h4>refactor</h4>
+            <p>refactor digunakan untuk menandai perubahan kode yang tidak menambah fitur atau memperbaiki bug. Umumnya berhubungan dengan perbaikan code smell, implementasi design pattern, dan sebagainya. Saya pernah menggunakan refactor, tapi sepertinya salah type.</p>
+            <div class="text-center"><img src="../images/refactor.png"></div>
+            <br>
+            <p>Seharusnya commit ini lebih cocok untuk feat karena fungsionalitas deaktivasi event berubah dari menunggu input user menjadi otomatis.</p>
+            <h4>test</h4>
+            <p>test digunakan untuk segala hal yang berkaitan dengan test, seperti membuat dan memperbaiki test. Cukup mudah dipahami karena type ini pasti digunakan secara eksklusif di file test.</p>
+            <div class="text-center"><img src="../images/test.png"></div>
+            <br>
+            <h4>build</h4>
+            <p>build digunakan untuk segala hal yang berkaitan dengan build system seperti package, dependency, dan lain-lain. Sejauh ini saya menggunakan build dalam file seperti pubspec.</p>
+            <div class="text-center"><img src="../images/build.png"></div>
+            <br>
+            <h4>style</h4>
+            <p>style digunakan untuk perubahan dalam file kode yang tidak mengubah makna kode itu sendiri, seperti penghapusan comment dan whitespace atau formatting. Saya juga belum pernah menggunakan type ini.</p>
+            <h4>chore</h4>
+            <p>chore digunakan untuk menandai perubahan miscellanous pada bagian-bagian project selain yang sudah disebutkan di atas. Misalnya, saya menandai perubahan nama file dan directory asset image sebagai chore.</p>
+            <div class="text-center"><img src="../images/chore.png"></div>
+            <br>
+            <p>Melabeli commit message dengan type tidak hanya membuat penelusuran commit lebih mudah bagi manusia, tetapi juga bagi mesin. Ini karena web conventional commit menyebutkan bahwa salah satu tujuan utama pembentukannya adalah untuk memfasilitasi pembuatan changelog secara otomatis. Jadi kesimpulannya, conventional commit membuat commit history menjadi lebih readable. Namun tentunya melabeli sebuah message dengan type tidak cukup tanpa disertai description yang singkat, padat, dan jelas.</p>
+            <hr>
+            <div class="text-center">
+                <b><i>Referensi:</i></b>
+                <br>
+                <a href="https://www.conventionalcommits.org/"><i>https://www.conventionalcommits.org/</i></a>
+                <br>
+                <a href="https://kapeli.com/cheat_sheets/Conventional_Commits.docset/Contents/Resources/Documents/index"><i>https://kapeli.com/cheat_sheets/Conventional_Commits.docset/Contents/Resources/Documents/index</i></a>
+            </div>
+        </div>
+    </body>
+</html>
