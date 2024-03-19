@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Test-Driven Development</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+            <a class="navbar-brand" href="index.html">Calista's GitHub Page</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="index.html">Blog PPL</a>
+            </div>
+        </nav>
+        <div class="p-5">
+            <div class="text-center">
+                <h1>Test-Driven Development</h1>
+                <b>Sprint 2 Week 1 | 19 Maret 2024</b>
+            </div>
+            <hr>
+            <p>Pada masa-masa awal pembelajaran software development, testing biasanya dilakukan setelah menulis kode. Hal ini masuk akal karena testing menguji apakah kode yang ditulis sudah memenuhi requirement yang diharapkan. Namun ada sebuah praktik disebut Test-Driven Development (TDD) yang melakukan kebalikannya, yaitu menulis test sebelum menulis kode. Walaupun terdengar seperti kontradiksi dengan definisi testing, praktik ini banyak disukai dan digunakan oleh para developer hingga saat ini. Mengapa demikian?</p>
+            <p>TDD merupakan salah satu konsep dari Extreme Programming yang dipelopori oleh <a href="https://tidyfirst.substack.com/p/canon-tdd">Kent Beck</a>. Menurutnya, TDD berorientasi pada software design secara keseluruhan, sehingga memang tidak sesuai jika dilihat dari sudut pandang testing saja. TDD bertujuan untuk membuat software yang memenuhi semua requirement dengan kode yang minimalis. Hal ini dapat tercapai jika kita mengulik satu persatu langkah yang dilakukan dalam TDD. Untuk blog ini, saya memberikan sedikit contoh penerapan TDD dalam tahap awal pengembangan fitur "Object Selection" dalam PBI Prototype Game 2 proyek TalaCare A1. Berikut adalah langkah-langkah dalam TDD:</p>
+            <h4>1. Membuat daftar test</h4>
+            <p>Ketika kita ingin menambah atau mengubah suatu fitur pada sebuah sistem, yang pertama kali kita pikirkan adalah ekspektasi yang diharapkan dari sudut pandang client. Seringkali fitur tersebut mencakup beberapa state atau kasus, sehingga membutuhkan lebih dari satu test.</p>
+            <p>Misalnya untuk fitur "Object Selection" yang sedang saya kerjakan, client akan dapat melihat sebuah kotak berisi tiga objek di bagian bawah layar. Inti permainan Game 2 adalah mencocokkan objek yang tepat dengan siluetnya di bagian atas layar, sehingga dari objek-objek yang ditampilkan, satu objek harus sama dengan siluet dan objek lainnya adalah "jawaban salah". Ketika objek yang tepat sudah dicocokkan, objek tersebut digantikan oleh objek baru, hingga ketersediaan objek habis. Jadi daftar test yang perlu dibuat kira-kira seperti ini:</p>
+            <ul>
+                <li>Memastikan kotak dan tiga objek terlihat pada awal permainan</li>
+                <li>Memastikan tepat satu objek sama dengan siluet pada suatu waktu</li>
+                <li>Memastikan posisi objek yang sudah dicocokkan diisi dengan objek baru (jika masih ada)</li>
+                <li>Memastikan kebenaran test 2 pada setiap waktu (mengecek test 2 setelah test 3 secara berulang)</li>
+            </ul>
+            <h4>2. RED: Menulis satu test (yang pasti gagal)</h4>
+            <p>Selanjutnya, kita ambil satu test dari list di atas untuk ditulis. Karena test membutuhkan kode implementasi yang belum kita buat, tentunya test akan gagal alias berwarna merah jika dijalankan. Contohnya adalah test pada gambar, terlihat bahwa saya memanggil class yang tidak terdefinisi. Ini tidak apa-apa, karena akan kita perbaiki pada tahap selanjutnya.</p>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-test-red.png"></div><br>
+            <p>Sebagai tambahan, sebuah unit test biasanya terdiri dari "3A" dilansir dari <a href="https://semaphoreci.com/blog/test-driven-development">blog milik Ferdinando Santacroce</a>, yaitu:</p>
+            <ul>
+                <li><b>Arrange:</b> menginstansiasi objek-objek yang diperlukan</li>
+                <li><b>Act:</b> mensimulasikan behavior yang diinginkan pada objek-objek</li>
+                <li><b>Assert:</b> memeriksa apakah behavior memberikan hasil atau efek yang sesuai ekspektasi</li>
+            </ul>
+            <p>Dalam gambar di atas, tahap arrange dan act dilakukan pada baris 12 (karena test hanya mengecek kondisi awal), sedangkan tahap assert dilakukan pada baris 13-15 (biasanya dengan method expect atau serupa).</p>
+            <h4>3. GREEN: Menulis kode untuk membuat test berhasil</h4>
+            <p>Pada tahap ini kita membuat test yang sudah dibuat sebelumnya dari gagal menjadi berhasil alias berwarna hijau. Caranya adalah dengan membuat kode implementasi. Perlu diingat bahwa kita ingin membuat kode seminimal mungkin, sehingga kita tidak perlu berpikir terlalu jauh ke depan saat menulis kode. Yang penting adalah test berhasil terlebih dulu.</p>
+            <p>Sebagai contoh, untuk membuat test di atas berhasil, saya cukup menambahkan import, membuat class ItemContainer dan Item yang masih kosong, dan menambahkan objek sesuai jumlah yang diinginkan pada component game.</p>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-import.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-itemcontainer-bare.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-item-bare.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-add-bare.png"></div><br>
+            <p>Dengan perubahan sesedikit itu, test pun jadi!</p>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-test-green.png"></div><br>
+            <h4>4. REFACTOR: Mengubah struktur kode dengan tetap menjaga (semua) test berhasil</h4>
+            <p>Sekarang test sudah berhasil, namun tetap ada hal yang harus dipertimbangkan. Penambahan kode yang seadanya pada tahap sebelumnya bisa jadi menimbulkan code smell atau malah membuat test lainnya menjadi gagal. Ingat bahwa TDD adalah software design practice, sehingga refactoring perlu dilakukan untuk menjaga kualitas kode tetap baik setelah setiap penambahan test. Refactoring ini dapat berlaku untuk kode implementasi maupun testing.</p>
+            <p>Refactoring juga dapat dilakukan untuk alasan lain. Misalnya ketika saya menjalankan kode yang dibuat tadi, kotak dan objeknya tidak terlihat.</p>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-run-bare.png"></div><br>
+            <p>Ini tentu saja karena class ItemContainer dan Item masih kosong. Untuk menampilkan mereka, saya tambahkan atribut size, position, anchor, dan paint dengan parameter sembarang.</p>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-itemcontainer-refactored.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-item-refactored.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-add-refactored.png"></div><br>
+            <p>Sekarang sudah terlihat :D</p>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1-run-refactored.png"></div><br>
+            <p>Sampai bagian ini, masih ada banyak refactoring yang perlu saya lakukan, seperti: menampilkan gambar/sprite yang sesuai, mengatur letak gambar dan proporsinya terhadap layar, dan memindahkan mereka ke dalam component khusus game 2 (saat ini belum ada, sehingga diletakkan di flame game untuk sementara).</p>
+            <h4>5. Ulangi tahap 2-4 hingga daftar test habis</h4>
+            <p>Cukup self-explanatory. Yang penting selalu ingat <b>RED-GREEN-REFACTOR</b>!</p>
+            <hr>
+            <div class="text-center">
+                <b><i>Referensi:</i></b>
+                <br>
+                <a href="https://semaphoreci.com/blog/test-driven-development"><i>https://semaphoreci.com/blog/test-driven-development</i></a>
+                <br>
+                <a href="https://tidyfirst.substack.com/p/canon-tdd"><i>https://tidyfirst.substack.com/p/canon-tdd</i></a>
+            </div>
+        </div>
+    </body>
+</html>
