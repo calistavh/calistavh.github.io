@@ -40,10 +40,10 @@
                 <li><b>Act:</b> mensimulasikan behavior yang diinginkan pada objek-objek</li>
                 <li><b>Assert:</b> memeriksa apakah behavior memberikan hasil atau efek yang sesuai ekspektasi</li>
             </ul>
-            <p>Dalam gambar di atas, tahap arrange dan act dilakukan pada baris 12 (karena test hanya mengecek kondisi awal), sedangkan tahap assert dilakukan pada baris 13-15 (biasanya dengan method expect atau serupa).</p>
+            <p>Dalam gambar di atas, tahap arrange dilakukan pada baris 12, tahap act dilakukan pada baris 13-14, sedangkan tahap assert dilakukan pada baris 15-18 (biasanya dengan method expect, query, dan lain-lain).</p>
             <h4>3. GREEN: Menulis kode untuk membuat test berhasil</h4>
             <p>Pada tahap ini kita membuat test yang sudah dibuat sebelumnya dari gagal menjadi berhasil alias berwarna hijau. Caranya adalah dengan membuat kode implementasi. Perlu diingat bahwa kita ingin membuat kode seminimal mungkin, sehingga kita tidak perlu berpikir terlalu jauh ke depan saat menulis kode. Yang penting adalah test berhasil terlebih dulu.</p>
-            <p>Sebagai contoh, untuk membuat test di atas berhasil, saya cukup menambahkan import, membuat class ItemContainer dan Item yang masih kosong, dan menambahkan objek sesuai jumlah yang diinginkan pada component game.</p>
+            <p>Sebagai contoh, untuk membuat test di atas berhasil, saya cukup menambahkan import, membuat class ItemContainer dan Item, dan menambahkan objek sesuai jumlah yang diinginkan pada component game.</p>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-import.png"></div><br>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-itemcontainer-bare.png"></div><br>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-item-bare.png"></div><br>
@@ -52,15 +52,13 @@
             <div class="text-center"><img src="../images/ppl-sprint2-week1-test-green.png"></div><br>
             <h4>4. REFACTOR: Mengubah struktur kode dengan tetap menjaga (semua) test berhasil</h4>
             <p>Sekarang test sudah berhasil, namun tetap ada hal yang harus dipertimbangkan. Penambahan kode yang seadanya pada tahap sebelumnya bisa jadi menimbulkan code smell atau malah membuat test lainnya menjadi gagal. Ingat bahwa TDD adalah software design practice, sehingga refactoring perlu dilakukan untuk menjaga kualitas kode tetap baik setelah setiap penambahan test. Refactoring ini dapat berlaku untuk kode implementasi maupun testing.</p>
-            <p>Refactoring juga dapat dilakukan untuk alasan lain. Misalnya ketika saya menjalankan kode yang dibuat tadi, kotak dan objeknya tidak terlihat.</p>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-run-bare.png"></div><br>
-            <p>Ini tentu saja karena class ItemContainer dan Item masih kosong. Untuk menampilkan mereka, saya tambahkan atribut size, position, anchor, dan paint dengan parameter sembarang.</p>
+            <p>Refactoring juga dapat dilakukan untuk alasan lain. Misalnya ketika saya menjalankan kode yang dibuat tadi, kotak dan objeknya tidak terlihat. Ini tentu saja karena class ItemContainer dan Item masih kosong. Untuk menampilkan mereka, saya tambahkan atribut size, anchor, dan paint dengan parameter yang didapat melalui trial and error.</p>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-itemcontainer-refactored.png"></div><br>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-item-refactored.png"></div><br>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-add-refactored.png"></div><br>
             <p>Sekarang sudah terlihat :D</p>
             <div class="text-center"><img src="../images/ppl-sprint2-week1-run-refactored.png"></div><br>
-            <p>Sampai bagian ini, masih ada banyak refactoring yang perlu saya lakukan, seperti: menampilkan gambar/sprite yang sesuai, mengatur letak gambar dan proporsinya terhadap layar, dan memindahkan mereka ke dalam component khusus game 2 (saat ini belum ada, sehingga diletakkan di flame game untuk sementara).</p>
+            <p>Sampai bagian ini, masih ada banyak refactoring yang perlu saya lakukan, seperti: menampilkan gambar/sprite yang sesuai, mengatur letak gambar dan proporsinya terhadap layar, dan mengatur susunan komponen dalam game 2 (saat ini world dan camera yang digunakan masih dari game 1).</p>
             <h4>5. Ulangi tahap 2-4 hingga daftar test habis</h4>
             <p>Cukup self-explanatory. Yang penting selalu ingat <b>RED-GREEN-REFACTOR</b>!</p>
             <hr>
