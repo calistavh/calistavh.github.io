@@ -35,28 +35,28 @@
             <p>Kalau kita hapus semua bagian opsionalnya, maka didapat syntax paling sederhana <code>&lt;type&gt;: &lt;description&gt;</code>. Sesuai dengan commit message yang sering saya lihat. Website di atas menjelaskan dua type utama untuk commit, yaitu feat dan fix. Namun ada beberapa type lain yang dapat digunakan menurut <a href="https://kapeli.com/cheat_sheets/Conventional_Commits.docset/Contents/Resources/Documents/index">cheat sheet ini</a>. Berikut adalah beberapa type yang saya sudah atau ingin gunakan untuk project-project kedepannya.</p>
             <h4>feat</h4>
             <p>feat digunakan untuk memperkenalkan fitur baru--setidaknya menurut website, tapi saya ingin tahu apakah perubahan pada fitur dikategorikan ke dalam feat atau tidak. Dipikir lagi, definisi 'fitur' di sini tidak memiliki definisi yang jelas. Jadi untuk saat ini, saya mengambil kesimpulan bahwa jika terjadi perubahan pada fungsionalitas atau output program, maka perubahan tersebut dikategorikan sebagai feat.</p>
-            <div class="text-center"><img src="../images/feat.png"></div>
+            <div class="text-center"><img src="../images/ppl-sprint1-week2-feat.png"></div>
             <br>
             <h4>fix</h4>
             <p>fix digunakan untuk memperbaiki bug yang muncul pada version sebelumnya, dengan deskripsi berisi bug tersebut. Saya sendiri belum pernah menggunakannya, tapi sepertinya type ini akan banyak muncul setelah banyak commit, testing, dan integrasi.</p>
             <h4>refactor</h4>
             <p>refactor digunakan untuk menandai perubahan kode yang tidak menambah fitur atau memperbaiki bug. Umumnya berhubungan dengan perbaikan code smell, implementasi design pattern, dan sebagainya. Saya pernah menggunakan refactor, tapi sepertinya salah type.</p>
-            <div class="text-center"><img src="../images/refactor.png"></div>
+            <div class="text-center"><img src="../images/ppl-sprint1-week2-refactor.png"></div>
             <br>
             <p>Seharusnya commit ini lebih cocok untuk feat karena fungsionalitas deaktivasi event berubah dari menunggu input user menjadi otomatis.</p>
             <h4>test</h4>
             <p>test digunakan untuk segala hal yang berkaitan dengan test, seperti membuat dan memperbaiki test. Cukup mudah dipahami karena type ini pasti digunakan secara eksklusif di file test.</p>
-            <div class="text-center"><img src="../images/test.png"></div>
+            <div class="text-center"><img src="../images/ppl-sprint1-week2-test.png"></div>
             <br>
             <h4>build</h4>
             <p>build digunakan untuk segala hal yang berkaitan dengan build system seperti package, dependency, dan lain-lain. Sejauh ini saya menggunakan build dalam file seperti pubspec.</p>
-            <div class="text-center"><img src="../images/build.png"></div>
+            <div class="text-center"><img src="../images/ppl-sprint1-week2-build.png"></div>
             <br>
             <h4>style</h4>
             <p>style digunakan untuk perubahan dalam file kode yang tidak mengubah makna kode itu sendiri, seperti penghapusan comment dan whitespace atau formatting. Saya juga belum pernah menggunakan type ini.</p>
             <h4>chore</h4>
             <p>chore digunakan untuk menandai perubahan miscellanous pada bagian-bagian project selain yang sudah disebutkan di atas. Misalnya, saya menandai perubahan nama file dan directory asset image sebagai chore.</p>
-            <div class="text-center"><img src="../images/chore.png"></div>
+            <div class="text-center"><img src="../images/ppl-sprint1-week2-chore.png"></div>
             <br>
             <p>Melabeli commit message dengan type tidak hanya membuat penelusuran commit lebih mudah bagi manusia, tetapi juga bagi mesin. Ini karena web conventional commit menyebutkan bahwa salah satu tujuan utama pembentukannya adalah untuk memfasilitasi pembuatan changelog secara otomatis. Jadi kesimpulannya, conventional commit membuat commit history menjadi lebih readable. Namun tentunya melabeli sebuah message dengan type tidak cukup tanpa disertai description yang singkat, padat, dan jelas.</p>
             <hr>
