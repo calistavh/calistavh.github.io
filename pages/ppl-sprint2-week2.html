@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Proses Pembuatan Aset Visual</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+            <a class="navbar-brand" href="index.html">Calista's GitHub Page</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="index.html">Blog PPL</a>
+            </div>
+        </nav>
+        <div class="p-5">
+            <div class="text-center">
+                <h1>Proses Pembuatan Aset Visual</h1>
+                <b>Sprint 2 Week 2 | 27 Maret 2024</b>
+            </div>
+            <hr>
+            <p>Blog ini akan berfokus pada proses pembuatan aset visual sejauh ini untuk <a href="https://github.com/PPL-A1-Genap-2023-2024/talacare-mobile">TalaCare A1</a>, sebuah mobile game dengan target pengguna anak penderita talasemia berusia 3-5 tahun, sebagai proyek kelompok PPL. Tahapan-tahapan yang tertulis dalam blog ini berasal dari apa yang saya lewati, dan dengan demikian bersifat subjektif.</p>
+            <h4>1. Pertimbangan Awal</h4>
+            <p>Pada tahap system design, kami mempertimbangkan beberapa hal yang membuat implementasi aset visual dalam proyek PPL kami lebih sulit dibandingkan proyek-proyek mata kuliah sebelumnya atau proyek-proyek PPL kelompok lain.</p>
+            <ul>
+                <li>Produk akhir yang berupa game mengharuskan kami menggunakan banyak aset visual untuk elemen-elemen dalam game seperti sprite, animasi, dan HUD; ditambah aset visual aplikasi umumnya seperti logo, tombol, dan tipografi.</li>
+                <li>Mengikuti target pengguna game dan permintaan klien, kami perlu menggunakan aset visual yang mudah menarik perhatian anak. Hal ini dapat dicapai melalui menampilkan objek yang anak kenal, art style yang cukup sederhana, dan pemilihan warna yang cerah.</li>
+                <li>Penggunaan aset visual yang sudah jadi berpotensi menimbulkan masalah dari segi perizinan dan kurang kohesifnya aset satu dengan yang lain atau antara aset dengan tema.</li>
+                <li>Keterbatasan budget membuat kami tidak memutuskan membeli aset visual jadi atau mengkomisi visual artist untuk membuat aset visual. Di lain sisi, keterbatasan waktu dan kemampuan anggota kelompok mengakibatkan pembuatan aset visual sendiri sulit.</li>
+            </ul>
+            <p>Setelah diskusi, kelompok kami memutuskan untuk membuat aset visual sendiri, minimal untuk elemen-elemen dalam game. Style yang digunakan harus sederhana agar mudah dibuat, namun tetap memperhatikan konsiderasi klien.</p>
+            <h4>2. Menentukan Konsep</h4>
+            <p>Tahap selanjutnya adalah menentukan style seperti apa yang akan diikuti saat membuat aset. Sederhananya, kami mencari game-game di internet dengan art style yang sesuai dengan tema proyek kami untuk dijadikan inspirasi. Kata kunci yang kami perhatikan ketika melakukan pencarian di antaranya adalah: untuk anak-anak, sederhana, dan berwarna cerah. Kemudian kami mengangkat game-game yang kami temukan dalam diskusi. Berikut adalah contoh dua game yang memenuhi kriteria kami, yaitu Cat Snack Bar dan Neko Atsume:</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week2-cat-snack-bar.jpg"> <img src="../images/ppl-sprint2-week2-neko-atsume.jpg"><br>
+                <i>Screenshot Cat Snack Bar (kiri) dan Screenshot Neko Atsume (kanan)</i><br>
+            </div><br>
+            <p>Terdapat satu kesamaan pada art style kedua game ini, yaitu penggunaan lineart yang tebal dan konsisten. Perbedaan-perbedaan yang ada, misalnya pada pewarnaan dan shading, cukup kontras namun keduanya tidak mencolok. Aspek inilah yang ingin kami terapkan dalam aset visual kami.</p>
+            <p>Namun terdapat satu aspek lain yang kami perlukan yang tidak dimiliki kedua game di atas, yaitu desain karakter. Konsep game kami mengharuskan kami menampilkan karakter manusia seperti anak (avatar pemain), ibu, dan perawat. Oleh karena itu, saya membuat sketsa konsep karakter untuk digunakan dalam game. Saya menggunakan bentuk tubuh chibi (kepala besar, badan kecil) sehingga lebih sederhana namun tetap memberikan detail untuk membedakan peran karakter.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week2-konsep-karakter.png"><br>
+                <i>Sketsa konsep karakter manusia untuk TalaCare A1</i><br>
+            </div><br>
+            <h4>3. Menentukan Ukuran Aset</h4>
+            <p>Art style, ukuran layar, dan posisi aset saat ditampilkan di layar berpengaruh terhadap penentuan ukuran aset yang tepat. Dari pengalaman saya, penentuan ini dilakukan dengan trial and error menggunakan aset "prototype dari prototype" yang tetap dibuat dalam art style yang sudah dipilih.</p>
+            <p>Dalam kasus game kami yang menggunakan komponen World dan Camera dari Flutter Flame, pengaturan camera viewport seperti zoom juga mempengaruhi ukuran aset, karena zoom dapat membuat kualitas aset pecah. Berikut adalah perbandingan tampilan dua aset untuk ikon yang sama, satu dengan lineart tebal sebesar 50x50 pixel dan satu pixel art sebesar 15x15 pixel.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week2-ikon-lineart-tebal.png"> <img src="../images/ppl-sprint2-week2-ikon-pixel-art.png"><br>
+                <i>Tampilan Ikon dengan Lineart Tebal (kiri) dan Pixel Art (kanan) pada Game 1 TalaCare A1</i><br>
+            </div><br>
+            <p>Terlihat bahwa selain proporsi ukurannya yang tidak sesuai dengan aset lainnya, ikon dengan lineart tebal menjadi pecah akibat zoom camera viewport. Hal ini dapat menjadi isu kembali ke tahap 2, yaitu apakah art style yang dipilih cocok untuk kondisi game tertentu. Adapun solusi alternatif adalah mencari cara untuk membuat aset visual yang dapat di-resize tanpa merusak kualitasnya.</p>
+            <h4>4. Membuat Aset Visual</h4>
+            <p>Dengan memperhatikan ketiga tahapan sebelumnya, proses membuat aset visual itu sendiri dapat dimulai. Pada saat pembuatan blog ini, proyek sedang melalui sprint 2 dan game masih bersifat prototype, sehingga aset visual masih dapat berubah tergantung feedback klien atau perubahan keputusan dalam development ke depannya. Dengan demikian, wajar jika terdapat beberapa alternatif desain untuk satu aset. Contohnya adalah ikon pada tahap sebelumnya. Berikut juga diberikan contoh aset prototype yang saya buat selama menjalani proyek ini:</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week2-game1-prototype-1.png"> <img src="../images/ppl-sprint2-week2-game1-prototype-2.png"><br>
+                <i>Dua alternatif gambar aktivitas varian menggambar untuk Game 1 TalaCare A1</i><br><br>
+                <img src="../images/ppl-sprint2-week2-game2-prototype.png"><br>
+                <i>Gambar rumah sakit dengan semua objeknya untuk Game 2 TalaCare A1</i><br>
+            </div><br>
+        </div>
+    </body>
+</html>
