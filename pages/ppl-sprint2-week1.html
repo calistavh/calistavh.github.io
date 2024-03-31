@@ -33,7 +33,7 @@
             </ul>
             <h4>2. RED: Menulis satu test (yang pasti gagal)</h4>
             <p>Selanjutnya, kita ambil satu test dari list di atas untuk ditulis. Karena test membutuhkan kode implementasi yang belum kita buat, tentunya test akan gagal alias berwarna merah jika dijalankan. Contohnya adalah test pada gambar, terlihat bahwa saya memanggil class yang tidak terdefinisi. Ini tidak apa-apa, karena akan kita perbaiki pada tahap selanjutnya.</p>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-test-red.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/test-red.png"></div><br>
             <p>Sebagai tambahan, sebuah unit test biasanya terdiri dari "3A" dilansir dari <a href="https://semaphoreci.com/blog/test-driven-development">blog milik Ferdinando Santacroce</a>, yaitu:</p>
             <ul>
                 <li><b>Arrange:</b> menginstansiasi objek-objek yang diperlukan</li>
@@ -44,20 +44,20 @@
             <h4>3. GREEN: Menulis kode untuk membuat test berhasil</h4>
             <p>Pada tahap ini kita membuat test yang sudah dibuat sebelumnya dari gagal menjadi berhasil alias berwarna hijau. Caranya adalah dengan membuat kode implementasi. Perlu diingat bahwa kita ingin membuat kode seminimal mungkin, sehingga kita tidak perlu berpikir terlalu jauh ke depan saat menulis kode. Yang penting adalah test berhasil terlebih dulu.</p>
             <p>Sebagai contoh, untuk membuat test di atas berhasil, saya cukup menambahkan import, membuat class ItemContainer dan Item, dan menambahkan objek sesuai jumlah yang diinginkan pada component game.</p>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-import.png"></div><br>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-itemcontainer-bare.png"></div><br>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-item-bare.png"></div><br>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-add-bare.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/import.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/itemcontainer-bare.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/item-bare.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/add-bare.png"></div><br>
             <p>Dengan perubahan sesedikit itu, test pun jadi!</p>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-test-green.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/test-green.png"></div><br>
             <h4>4. REFACTOR: Mengubah struktur kode dengan tetap menjaga (semua) test berhasil</h4>
             <p>Sekarang test sudah berhasil, namun tetap ada hal yang harus dipertimbangkan. Penambahan kode yang seadanya pada tahap sebelumnya bisa jadi menimbulkan code smell atau malah membuat test lainnya menjadi gagal. Ingat bahwa TDD adalah software design practice, sehingga refactoring perlu dilakukan untuk menjaga kualitas kode tetap baik setelah setiap penambahan test. Refactoring ini dapat berlaku untuk kode implementasi maupun testing.</p>
             <p>Refactoring juga dapat dilakukan untuk alasan lain. Misalnya ketika saya menjalankan kode yang dibuat tadi, kotak dan objeknya tidak terlihat. Ini tentu saja karena class ItemContainer dan Item masih kosong. Untuk menampilkan mereka, saya tambahkan atribut size, anchor, dan paint dengan parameter yang didapat melalui trial and error.</p>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-itemcontainer-refactored.png"></div><br>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-item-refactored.png"></div><br>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-add-refactored.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/itemcontainer-refactored.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/item-refactored.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/add-refactored.png"></div><br>
             <p>Sekarang sudah terlihat :D</p>
-            <div class="text-center"><img src="../images/ppl-sprint2-week1-run-refactored.png"></div><br>
+            <div class="text-center"><img src="../images/ppl-sprint2-week1/run-refactored.png"></div><br>
             <p>Sampai bagian ini, masih ada banyak refactoring yang perlu saya lakukan, seperti: menampilkan gambar/sprite yang sesuai, mengatur letak gambar dan proporsinya terhadap layar, dan mengatur susunan komponen dalam game 2 (saat ini world dan camera yang digunakan masih dari game 1).</p>
             <h4>5. Ulangi tahap 2-4 hingga daftar test habis</h4>
             <p>Cukup self-explanatory. Yang penting selalu ingat <b>RED-GREEN-REFACTOR</b>!</p>
