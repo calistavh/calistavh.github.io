@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Software Quality Assurance dengan SonarQube</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+            <a class="navbar-brand" href="index.html">Calista's GitHub Page</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="index.html">Blog PPL</a>
+            </div>
+        </nav>
+        <div class="p-5">
+            <div class="text-center">
+                <h1>Software Quality Assurance dengan SonarQube</h1>
+                <b>Sprint 2 Week 3 | 31 Maret 2024</b>
+            </div>
+            <hr>
+            <p>Software Quality Assurance (SQA) adalah segala proses dalam yang memastikan bahwa sebuah software memiliki kualitas yang baik. Kualitas ini diukur berdasarkan standar yang sudah terdefinisi. Produk berkualitas baik dapat memenuhi kebutuhan serta meningkatkan kepuasan pengguna dengan maksimal, sehingga SQA menjadi salah satu aspek terpenting dalam software development.</p>
+            <h3>SonarQube sebagai Alat Static Code Analysis</h4>
+            <p>Umumnya SQA terdiri atas rangkaian proses untuk mengevaluasi kualitas produk sepanjang tahap pengembangan, serta melibatkan banyak peran. Namun ini bukan berarti SQA sulit diterapkan pada pengembangan skala kecil atau pengembangan dengan durasi cepat seperti proyek PPL. Salah satu teknik dalam SQA yang dapat diimplementasikan dalam kasus ini adalah static code analysis, yaitu pengecekan kode tanpa mengeksekusinya. Pengecekan dilakukan secara otomatis oleh platform khusus seperti SonarQube.</p>
+            <p>Static code analysis bekerja dengan menunjukkan bagian pada kode yang belum memenuhi standar atau berpotensi menimbulkan masalah. Sifatnya yang statis membuat pengembang tidak perlu menunggu untuk memperbaiki kode tersebut, sehingga pengembangan berlangsung dengan cepat dan kualitas produk tetap terjaga. Hal ini sesuai dengan prinsip yang ditegakkan oleh SonarQube, yaitu Clean as You Code.</p>
+            <h3>Clean as You Code</h4>
+            <p>Clean as You Code adalah pendekatan yang menuntut tiap pengembang untuk bertanggung jawab atas kualitas kode yang dibuatnya sendiri. Panduan pengguna SonarQube secara spesifik menyebut kode ini sebagai new code, yang definisinya dapat diatur mengikuti kebutuhan tim. Pendekatan ini bermaksud agar pengembang terbiasa memeriksa kode yang baru saja ia buat dan memperbaikinya jika perlu secepat mungkin, agar kode aman untuk digabung menjadi software utuh.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week3/activity.png" width="600" height="300"><br><br>
+                <i>Dalam branch yang saya kerjakan, baseline code adalah kode yang saya push pertama kali pada branch, dan new code adalah semua kode hasil push setelahnya.</i><br>
+            </div><br>
+            <h3>Quality Gate</h4>
+            <p>SonarQube menentukan apakah kode siap diteruskan ke tahap produksi berdasarkan serangkaian kondisi yang membentuk quality gate. Sekali lagi, quality gate dapat didefinisikan sendiri oleh tim, namun SonarQube menyediakan quality gate default bernama Sonar way yang menerapkan Clean as You Code. Kondisi new code yang clean menurut Sonar way adalah:</p>
+            <h4>1. Tidak memiliki issue</h4>
+            <p>Issue didefinisikan sebagai rule, yaitu assertion yang dieksekusi SonarQube dalam static code analysis, yang dilanggar. Setiap rule dikategorikan ke salah satu dari tiga domain, yaitu:</p>
+            <h5>a. Reliability</h5>
+            <p>Reliability adalah seberapa akurat dan konsisten produk dalam menjalankan fungsinya. SonarQube menilai reliability berdasarkan keberadaan bug (hasil yang tidak diharapkan) dan seberapa buruk bug tersebut mempengaruhi penggunaan produk.</p>
+            <h5>b. Maintainability</h5>
+            <p>Maintainability adalah seberapa mudah produk dapat dimodifikasi kedepannya. SonarQube menilai maintainability dengan menghitung dua hal. Pertama adalah code smell, yaitu kode yang berpotensi mempersulit atau memperlama modifikasi. Kedua adalah technical debt, yaitu waktu yang diperlukan untuk mengatasi code smell.</p>
+            <h5>c. Security</h5>
+            <p>Security adalah seberapa rentan produk terhadap serangan siber dilihat dari kode yang dibuat. SonarQube menilai security berdasarkan keberadaan vulnerability (bagian kode yang rentan) dan seberapa buruk vulnerability tersebut mengancam keamanan produk.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week3/rules.png" width="600" height="300"><br><br>
+                <i>Rule-rule yang dimiliki SonarQube dapat diakses melalui tab Rules. Tampak bahwa SonarQube memiliki rule untuk berbagai bahasa.</i><br>
+            </div><br>
+            <p>Menurut Sonar way, alternatif dari syarat tidak memiliki issue adalah rating ketiga domain di atas harus minimal bernilai A.</p>
+            <h4>2. Semua security hotspot sudah di-review</h4>
+            <p>Security hotspot adalah bagian dari kode yang berpotensi menimbulkan vulnerability. SonarQube menunjukkan security hotspot yang ada dan meminta pengembang untuk melakukan review terhadap hotspot tersebut. Sebuah security hotspot bisa saja aman dan tidak perlu diubah.</p>
+            <h4>3. Coverage minimal 80%</h4>
+            <p>Coverage adalah seberapa banyak kode yang tereksekusi oleh test. Metrik ini bertujuan memastikan bahwa test sudah lengkap. Apabila coverage berkurang, tandanya test harus ditambah untuk mencakup baris atau kondisi yang tertinggal.</p>
+            <h4>4. Duplication minimal 3%</h4>
+            <p>Duplication adalah seberapa banyak kode yang melakukan pekerjaan yang sama. Duplicated code tidak selalu sama persis. Solusinya dalam kasus ini adalah refactoring agar salah satu kode dapat digunakan untuk semua bagian yang menggunakan duplicated code sebelumnya.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week3/overview.png" width="600" height="300"><br><br>
+                <i>Report terbaru dapat dilihat pada tab Overview. Tampak status quality gate (passed atau failed) serta keenam metrik yang menentukannya.</i><br>
+            </div><br>
+            <h3>Contoh Penerapan Clean as You Code</h3>
+            <p>Berikut saya berikan contoh kasus di mana kode yang saya push tidak memenuhi syarat quality gate pada SonarQube.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week3/example-initial.png"><br><br>
+                <img src="../images/ppl-sprint2-week3/example-failed.png" width="600" height="300"><br><br>
+                <i>Ringkasan report analysis dapat dilihat pada tab Activities. Detail report tidak sempat saya simpan karena SonarQube tidak menyimpan report lama :(</i><br>
+            </div><br>
+            <p>Menurut SonarQube, kode saya mengandung satu code smell sehingga maintainability rating menjadi B dan status quality gate menjadi failed.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week3/example-issue.png" width="600" height="300"><br><br>
+                <i>Detail issue dapat dilihat pada tab Issues. Untungnya SonarQube masih menyimpan daftar issue yang sudah diperbaiki walaupun kode yang menimbulkannya tidak disimpan :')</i><br>
+            </div><br>
+            <p>SonarQube memberi tahu rule apa yang dilanggar, kode mana yang menimbulkan issue, domain apa yang terpengaruh oleh issue, dan tingkat keburukan issue. Selain itu, SonarQube juga memberikan penjelasan terkait alasan di balik issue tersebut. Dalam kasus ini, saya tidak sengaja menggunakan property dengan nama yang sama dengan property pada superclass. Padahal kedua property tersebut memiliki tujuan yang berbeda, hanya namanya yang kebetulan sama. Jadi alih-alih menambahkan anotasi override seperti yang direkomendasikan SonarQube, saya cukup mengganti nama property.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint2-week3/example-refactor.png"><br><br>
+                <img src="../images/ppl-sprint2-week3/example-passed.png" width="600" height="300"><br><br>
+                <i>Setelah push refactor, tampak bahwa issue sudah ditutup dan status quality gate menjadi passed :D</i><br>
+            </div><br>
+            <hr>
+            <div class="text-center">
+                <b><i>Referensi:</i></b>
+                <br>
+                <a href="https://www.softwaretestinghelp.com/software-quality-assurance/"><i>https://www.softwaretestinghelp.com/software-quality-assurance/</i></a>
+                <br>
+                <a href="https://docs.sonarsource.com/sonarqube/latest/user-guide/clean-as-you-code/"><i>https://docs.sonarsource.com/sonarqube/latest/user-guide/clean-as-you-code/</i></a>
+                <br>
+                <a href="https://docs.sonarsource.com/sonarqube/latest/user-guide/metric-definitions/"><i>https://docs.sonarsource.com/sonarqube/latest/user-guide/metric-definitions/</i></a>
+            </div>
+        </div>
+    </body>
+</html>
