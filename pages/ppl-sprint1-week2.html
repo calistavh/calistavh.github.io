@@ -59,6 +59,22 @@
             <div class="text-center"><img src="../images/ppl-sprint1-week2/chore.png"></div>
             <br>
             <p>Melabeli commit message dengan type tidak hanya membuat penelusuran commit lebih mudah bagi manusia, tetapi juga bagi mesin. Ini karena web conventional commit menyebutkan bahwa salah satu tujuan utama pembentukannya adalah untuk memfasilitasi pembuatan changelog secara otomatis. Jadi kesimpulannya, conventional commit membuat commit history menjadi lebih readable. Namun tentunya melabeli sebuah message dengan type tidak cukup tanpa disertai description yang singkat, padat, dan jelas.</p>
+            <h4>Bonus: Linking dalam Commit Message</h4>
+            <p>Terkadang kita perlu mereferensi sesuatu saat mengajukan commit, misalnya untuk menandai pekerjaan kita dalam suatu lingkup atau merujuk pekerjaan lain yang berkaitan. Untuk memudahkan hal tersebut, GitHub menyediakan fitur linking dalam commit message. Substring dalam format tertentu akan otomatis dibuatkan link-nya. Pengguna dapat melakukan hover cursor di atas link untuk melihat popup berisi ringkasan rujukan, serta menekan link untuk memunculkan halaman rujukan. Ada beberapa hal yang dapat di-link dalam commit GitHub, dua yang saya pernah gunakan di antaranya:</p>
+            <ul>
+                <li><b>Commit lain:</b> tuliskan hash versi pendek dari commit yang ingin di-link, tanpa prefiks tertentu. Hash commit GitHub biasanya tampak berdekatan dengan deskripsi commit message sebanyak 7 karakter.</li>
+                <div class="text-center">
+                    <br>
+                    <img src="../images/ppl-sprint1-week2/link-commit.png"><br>
+                    <i>Contoh commit yang memiliki link commit, popup ditunjuk oleh cursor.</i><br>
+                </div><br>
+                <li><b>GitHub Issue:</b> tuliskan prefiks "#" atau "GH-" diikuti dengan nomor GitHub issue yang ingin di-link. Commit akan muncul di halaman issue yang bersangkutan, sehingga proses pengerjaan khusus issue tersebut tampak jelas.</li>
+                <div class="text-center">
+                    <br>
+                    <img src="../images/ppl-sprint1-week2/link-issue.png"><br>
+                    <i>Contoh commit yang memiliki link issue, popup ditunjuk oleh cursor.</i><br>
+                </div><br>
+            </ul>
             <hr>
             <div class="text-center">
                 <b><i>Referensi:</i></b>
