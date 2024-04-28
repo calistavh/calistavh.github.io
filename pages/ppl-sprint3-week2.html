@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Git Advanced Commands</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+            <a class="navbar-brand" href="index.html">Calista's GitHub Page</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="index.html">Blog PPL</a>
+            </div>
+        </nav>
+        <div class="p-5">
+            <div class="text-center">
+                <h1>Git Advanced Commands</h1>
+                <b>Sprint 3 Week 2 | Dibuat: 28 April 2024</b>
+            </div>
+            <hr>
+            <p>Sebagian perintah yang paling sering digunakan dalam rutinitas programming (setidaknya menurut saya) diantaranya adalah add, commit, push, pull, branch, checkout, fetch, dan merge. Namun git menyediakan banyak perintah lain yang sangat bermanfaat pada situasi-situasi tertentu, seperti mengubah perubahan yang sudah tersimpan dan menggunakan perubahan dari branch lain. Berikut adalah beberapa contohnya:</p>
+            <h3>stash</h3>
+            <p>Stash adalah tempat penyimpanan untuk perubahan-perubahan yang belum di-commit, baik yang sudah maupun yang belum masuk staging. Perubahan yang dimasukkan dalam staging akan hilang di working directory. Kemudian developer dapat membuat perubahan lain di branch tersebut atau checkout ke branch lain, tanpa khawatir kehilangan perubahan awal.</p>
+            <p>Sebagai contoh, saya mengubah sebuah file dalam branch saya. Ketika saya ingin pindah branch, saya dapat menulis <b>[git stash]</b> untuk memasukkan (semua, dalam kasus ini hanya satu) perubahan ke dalam stash. Selanjutnya, dapat dilihat bahwa perubahan tersebut ada di dalam stash dengan <b>[git stash list]</b> dan tidak ada di dalam directory.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/stash-1.png"><br><br>
+                <i>Contoh penggunaan [git stash] dan [git stash list].</i><br>
+            </div><br>
+            <p>Developer juga dapat menuliskan deskripsi saat menyimpan perubahan dengan <b>[git stash save "{deskripsi}"]</b>.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/stash-2.png"><br><br>
+                <i>Contoh penggunaan [git stash save].</i><br>
+            </div><br>
+            <p>Untuk mengambil kembali perubahan tersebut, gunakan perintah <b>[git stash pop]</b>. Secara default, pop akan mengeluarkan perubahan yang paling baru dimasukkan ([stash@{0}] menurut list stash). Apabila ingin mengambil perubahan yang lain, tulislah <b>[git stash pop "stash@{{index}}"]</b>. Setelah pop, perubahan akan hilang dari stash dan terlihat kembali dalam directory.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/stash-3.png"><br><br>
+                <i>Contoh penggunaan [git stash pop].</i><br>
+            </div><br>
+            <p>Apply berfungsi mirip seperti pop, namun perubahan akan masih tersimpan dalam stash. Untuk menggunakan apply, tulis <b>[git stash apply "stash@{{index}}"]</b>.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/stash-4.png"><br><br>
+                <i>Contoh penggunaan [git stash apply].</i><br>
+            </div><br>
+            <p>Seandainya ingin menghapus seluruh isi stash, gunakan <b>[git stash drop]</b>.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/stash-5.png"><br><br>
+                <i>Contoh penggunaan [git stash drop].</i><br>
+            </div><br>
+            <h3>revert</h3>
+            <p>Suatu saat akan terjadi kasus dimana developer melakukan kesalahan dalam perubahan, namun sudah terlanjur masuk commit. Ada beberapa perintah yang membantu merevisi kesalahan tersebut, salah satunya adalah revert. Revert menghilangkan perubahan dalam suatu commit dengan membuat commit baru.</p>
+            <p>Misalnya, saya ingin menghapus commit yang baru saja saya buat. Commit terbaru selalu ditunjuk oleh HEAD, untuk memastikan bisa lihat dari perintah [git log] seperti pada gambar di bawah. Jadi saya menulis <b>[git revert {commit}]</b> dengan HEAD dalam {commit} (alternatifnya bisa dengan commit hash). Proses selanjutnya mirip dengan merge, yaitu dengan mengkonfirmasi perubahan yang akan dihilangkan dan menulis commit message.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/revert-1.png"><br><br>
+                <i>Contoh penggunaan [git revert].</i><br>
+            </div><br>
+            <p>Pada log akan terlihat bahwa bertambah satu commit, yaitu hasil revert tadi. Dalam kasus ini, kondisi directory sekarang sama dengan kondisi directory sebelum commit yang salah. Walaupun commit bertambah banyak, revert merupakan salah satu metode yang paling aman untuk mengubah kesalahan commit karena semua perubahan (sebelum dan sesudah revert) selalu tersimpan.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/revert-2.png"><br><br>
+                <i>Hasil revert.</i><br>
+            </div><br>
+            <h3>reset</h3>
+            <p>Alternatif yang lebih bermanfaat namun beresiko daripada revert adalah reset. Reset juga dapat memundurkan perubahan, namun dengan menghapus commit alih-alih menambah commit. Perubahan-perubahan yang tidak jadi masuk commit tersebut dapat dimasukkan ke penyimpanan tahap tertentu atau bahkan hilang, tergantung pada mode reset yang digunakan.</p>
+            <h4>hard reset</h4>
+            <p>Saat menghapus perubahan menggunakan hard reset, perubahan tersebut (dalam commit maupun yang belum dimasukkan commit) akan hilang total dari directory, sehingga seakan-akan mulai dari awal. Misalnya, sekarang saya ingin menghapus dua commit yang dibuat saat mendemonstrasikan revert. Maka perintah yang saya tulis adalah <b>[git reset --hard {commit}]</b> dengan [HEAD~2] dalam {commit} untuk menandakan bahwa saya ingin mundur dua commit sebelum HEAD.</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/reset-hard.png"><br><br>
+                <i>Contoh penggunaan [git reset --hard].</i><br>
+            </div><br>
+            <p>Perlu ditekankan bahwa hard reset adalah mode reset yang paling berbahaya jika tidak berhati-hati menulis commit tujuan reset karena semua perubahan yang hilang tidak dapat diambil kembali.</p>
+            <h4>mixed reset</h4>
+            <p>Mode kedua adalah mode default dari reset, yaitu mixed. Mixed reset menyimpan perubahan dari commit yang terhapus serta perubahan yang belum di-commit dalam unstaged changes. Ini membuat mixed reset HEAD mirip dengan restore (tampak pada gambar di bawah, "use git restore {file}... to discard changes in working directory"). Tentunya mixed reset juga kembali ke sebelum commit sebelum HEAD dengan format yang serupa dengan reset lainnya, yaitu <b>[git reset --mixed {commit}]</b> ([--mixed] opsional).</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/reset-mixed.png"><br><br>
+                <i>Contoh penggunaan [git reset --mixed].</i><br>
+            </div><br>
+            <h4>soft reset</h4>
+            <p>Soft reset menyimpan perubahan dari commit yang terhapus dalam staging, sehingga perubahan tersebut dapat di-commit lagi nantinya. Selain itu, perubahan yang awalnya masih di directory juga tersimpan. Berikut adalah contohnya, di mana saya ingin reset ke commit sebelum HEAD (HEAD~1) dengan perintah <b>[git reset --soft {commit}]</b>. Perubahan dalam commit tersebut yaitu file girl_run_16x16.png tersimpan dalam list "changes to be committed".</p>
+            <div class="text-center">
+                <img src="../images/ppl-sprint3-week2/reset-soft.png"><br><br>
+                <i>Contoh penggunaan [git reset --soft].</i><br>
+            </div><br>
+            <h3>cherry pick</h3>
+            <p>Cherry pick adalah perintah yang memungkinkan developer men-copy sebuah commit dari branch lain untuk dimasukkan dalam branch milik sendiri. Hasil akhirnya, perubahan dalam commit tersebut akan ada di kedua branch. Cherry pick sangat bermanfaat jika developer ingin menggunakan sebagian kecil fitur atau fix dari branch lain, sehingga tidak perlu merge keseluruhan branch.</p>
+            <p>Untuk menggunakannya, checkout ke branch yang akan menampung copy commit, kemudian ketik <b>[git cherry-pick {{commit}}]</b> dengan {{commit}} berisi hash commit yang ingin di-copy. Tahap selanjutnya mirip dengan merge dan revert, yaitu menambahkan menyetujui pembuatan commit.</p>
+            <h3>rebase</h3>
+            <p>Rebase memiliki fungsi yang mirip seperti merge, namun menggunakan metode yang berbeda. Saat melakukan merge dari branch A ke B, pada branch B akan bertambah commit merge dan base dari branch B tidak berubah. Sedangkan jika melakukan rebase, base dari branch B akan pindah ke ujung branch A, dan segala commit pada branch B sebelumnya akan berubah seakan-akan commit dilakukan setelah bercabang dari ujung branch A. Cara penggunaan rebase sama seperti merge, yaitu checkout terlebih dahulu ke branch B dengan kemudian ketik <b>[git rebase {{branch A}}]</b>.</p>
+            <p>Kedua metode tersebut memiliki keuntungan dan kelemahan tersendiri. Di satu sisi, merge lebih aman daripada rebase karena perubahan dari merge tersimpan pada kedua branch. Kelemahan inilah yang mengakibatkan munculnya golden rule untuk rebase, yaitu "jangan memindahkan base public branch (seperti main atau staging) ke feature branch".</p>
+            <p>Di lain sisi, merge dapat membuat commit history penuh dengan commit yang tidak relevan dengan fitur branch. Namun, terdapat opsi untuk melewati masalah ini, yaitu squash. Dengan menulis <b>[git merge --squash {{branch A}}]</b>, semua commit dari branch A yang akan ditambahkan ke branch B digabung ke dalam satu commit besar.</p>
+            <hr>
+            <div class="text-center">
+                <b><i>Referensi:</i></b>
+                <br>
+                <a href="https://www.atlassian.com/git/tutorials"><i>https://www.atlassian.com/git/tutorials</i></a>
+                <br>
+            </div>
+        </div>
+    </body>
+</html>
